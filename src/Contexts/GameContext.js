@@ -16,7 +16,7 @@ export const GameContextProvider = (props) => {
       turn: "x"
     })
 
-    const updatedBoard = (index) => {
+    const updateBoard = (index) => {
         let updatedBoard = game.board;
         updatedBoard[index] = game.turn
         setGame({
@@ -28,7 +28,7 @@ export const GameContextProvider = (props) => {
 
     return (
         <GameContext.Provider value={{
-            game, updatedBoard
+            game, updateBoard
         }}>
             {props.children}
         </GameContext.Provider>

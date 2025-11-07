@@ -7,10 +7,10 @@ function GameCell({cellitem, index }) {
   const { updateBoard, game } = useContext(GameContext);
 
   const cellClickHandler = () => {
-     const result = checkForWinner(game.board)
-     if (result) {
-    updateBoard(index)
-  }
+      updateBoard(index)
+    checkForWinner(game.board)
+   
+  
 
 }
   return (

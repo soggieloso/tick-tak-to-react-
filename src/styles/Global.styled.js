@@ -6,11 +6,15 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    ${(props) => props.theme.media.mobile}{
-       font-size: 11px;
+    
+    /* Safe media query with optional chaining */
+    ${(props) => props.theme?.media?.mobile || "@media (max-width: 1000px)"} {
+      font-size: 11px;
     }
   }
-    body {
-      background-color: ${props => props.theme.colors.primary};
-    }
+  
+  body {
+    /* Safe color access with fallback */
+    background-color: ${(props) => props.theme?.colors?.primary || "#FFFFFF"};
+  }
 `;
