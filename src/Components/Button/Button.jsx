@@ -5,7 +5,7 @@ import { ButtonWrapper } from './Button.styled'
 function Button(props) {
   
   return (
-    <ButtonWrapper {...props}>(props.children)</ButtonWrapper>
+    <ButtonWrapper {...props}>{props.children}</ButtonWrapper>
 )
 }
 

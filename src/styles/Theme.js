@@ -1,6 +1,6 @@
 export const lightTheme = {
   colors: {
-    primary: "#FGF1EB",
+    primary: "#F6F1EB", 
     secondary: "#203124",
     tertiary: "#3D3D2D",
     default: "#8CC1C7",
@@ -17,9 +17,12 @@ export const lightTheme = {
       breadth: "56px",
       circle: "18px",
     },
-    media: {
-      mobile: "@media (max-width: 1000px)",
-    },
+    
+  },
+
+  
+  media: {
+    mobile: "@media (max-width: 1000px)",
   },
 };
 
@@ -48,8 +51,10 @@ export const darkTheme = {
       breadth: "56px",
       circle: "18px",
     },
-    media: {
-      mobile: "@media (max-width: 1000px)",
-    },
+   
+  },
+
+  media: {
+    mobile: "@media (max-width: 1000px)",
   },
 };
