@@ -21,7 +21,7 @@ export const LightModeIcon = styled(MdOutlineLightMode)`
   cursor: pointer;
 `;
 
-// Fixed: Changed the name to avoid conflict with the import
+
 export const DarkModeIcon = styled(MdDarkMode)`
   color: ${(props) => props.theme.colors.text};
   font-size: 2rem;

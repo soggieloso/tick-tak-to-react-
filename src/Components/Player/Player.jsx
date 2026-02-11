@@ -1,10 +1,9 @@
 import React from 'react'
 import { PlayerWrapper, AvatarWrapper } from './Player.styled'
-import Avatar, { genConfig } from 'react-nice-avatar'
 import { Text } from "../../styles/General.styled"
 
-function Player({ player, isPlayerActive }) {
-    // Add safety check for player prop
+function Player({ player, isPlayerActive, useCharacterAvatars = false }) {
+ 
     if (!player) {
         return (
             <PlayerWrapper isPlayerActive={isPlayerActive}>
@@ -12,20 +11,37 @@ function Player({ player, isPlayerActive }) {
             </PlayerWrapper>
         );
     }
-
-    // Generate avatar config with fallback
-    const updatedAvatarConfig = genConfig(player.avatarConfig || player.name || "Player");
     
+    const getPlayerEmoji = () => {
+        if (player.choice === "x") {
+            return "❌"; // X emoji
+        } else {
+            return "⭕"; // O emoji
+        }
+    }
+
+    const getPlayerAvatar = () => {
+        if (player.name === "Player1" || player.name.includes("1")) {
+            return "👨‍🎤"; // Rock star for Player 1
+        } else {
+            return "👩‍🎤"; // Rock star for Player 2
+        }
+    }
+
     return (
         <PlayerWrapper isPlayerActive={isPlayerActive}>
             <AvatarWrapper isPlayerActive={isPlayerActive ?? false}>
-                <Avatar {...updatedAvatarConfig} />
+                <div style={{ fontSize: '3rem' }}>
+                    {useCharacterAvatars ? getPlayerAvatar() : getPlayerEmoji()}
+                </div>
             </AvatarWrapper>
 
-            <Text>{player.name || "Player"} ({player.choice?.toUpperCase() || "X"})</Text>
-            <Text>{player.score || 0}</Text>
+            <Text>
+                {player.name} ({player.choice.toUpperCase()})
+            </Text>
+            <Text>{player.score}</Text>
         </PlayerWrapper>
     )
 }
 
-export default Player
+export default Player;

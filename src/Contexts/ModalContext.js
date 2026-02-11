@@ -1,15 +1,16 @@
 import { createContext } from "react";
 import { useModal } from "../hooks/useModal";
+import ModalTemplate from "../Components/Modal/ModalTemplate";
 
 export const ModalContext = createContext({});
 
 export function ModalContextProvider({ children }) {
-  const modalData = useModal();
+  const { modal, ModalContent, handleModal } = useModal();
 
   return (
-    <ModalContext.Provider value={modalData}>
+    <ModalContext.Provider value={{ modal, ModalContent, handleModal }}>
       {children}
-      {/* ModalTemplate is now consumed as a regular component elsewhere */}
+      <ModalTemplate /> {}
     </ModalContext.Provider>
   );
 }
