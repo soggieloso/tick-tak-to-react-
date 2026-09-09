@@ -8,15 +8,15 @@ export const checkForWinner = (board) => {
   for (let i = 0; i < 9; i += 3) {
     if (checkForSequence(board[i], board[i + 1], board[i + 2])) {
       console.log("ROW Winner");
-      return [i, 1+3,i+6];
+      return [i, i + 1, i + 2];
     }
   }
 
- 
+
   for (let i = 0; i < 3; i += 1) {
     if (checkForSequence(board[i], board[i + 3], board[i + 6])) {
       console.log("COLUMN Winner");
-      return [i, 1 + 1, i + 2];
+      return [i, i + 3, i + 6];
     }
   }
 
